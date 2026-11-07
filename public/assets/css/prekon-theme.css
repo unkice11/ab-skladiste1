@@ -1,0 +1,83 @@
+/* =====================================================================
+   PREKON — centralna brend tema
+   Boje/fontovi/stil UI elemenata definisani na jednom mjestu i primijenjeni
+   preko override-a Bootstrap klasa — tako da se cijela aplikacija (sve
+   postojeće i buduće stranice) rebrendira bez izmjene svakog view fajla.
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --prekon-primarna: #0B1F38;      /* brand — tamno plava */
+    --prekon-sekundarna: #2563EB;    /* akcije / linkovi */
+    --prekon-neutralna: #64748B;     /* tekst / ikone (sekundarni) */
+    --prekon-pozadina: #E2E8F0;      /* gradijenti / površine */
+    --prekon-povrsina: #F8FAFC;      /* kartice / forme */
+    --prekon-tekst: #0F172A;         /* primarni tekst */
+    --prekon-uspjeh: #10B981;
+    --prekon-greska: #EF4444;
+    --prekon-gradijent-primarni: linear-gradient(135deg, #0B1F38, #2563EB);
+    --prekon-gradijent-sekundarni: linear-gradient(135deg, #2563EB, #3B82F6);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--prekon-tekst);
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+.fw-semibold { font-weight: 600 !important; }
+
+/* --- Dugmad -------------------------------------------------------- */
+.btn-dark, .btn-dark:hover, .btn-dark:focus {
+    background: var(--prekon-gradijent-primarni);
+    border-color: var(--prekon-primarna);
+    color: #fff;
+}
+.btn-dark:hover { filter: brightness(1.1); }
+.btn-outline-secondary, .btn-outline-dark {
+    color: var(--prekon-primarna);
+    border-color: var(--prekon-neutralna);
+}
+.btn-outline-secondary:hover, .btn-outline-dark:hover {
+    background: var(--prekon-sekundarna);
+    border-color: var(--prekon-sekundarna);
+    color: #fff;
+}
+.btn-outline-primary { color: var(--prekon-sekundarna); border-color: var(--prekon-sekundarna); }
+.btn-outline-primary:hover { background: var(--prekon-sekundarna); border-color: var(--prekon-sekundarna); }
+.btn-outline-danger { color: var(--prekon-greska); border-color: var(--prekon-greska); }
+.btn-outline-danger:hover { background: var(--prekon-greska); border-color: var(--prekon-greska); }
+
+/* --- Forme ----------------------------------------------------------- */
+.form-control:focus, .form-select:focus {
+    border-color: var(--prekon-sekundarna);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15);
+}
+.form-check-input:checked {
+    background-color: var(--prekon-sekundarna);
+    border-color: var(--prekon-sekundarna);
+}
+.form-switch .form-check-input:checked { background-color: var(--prekon-uspjeh); border-color: var(--prekon-uspjeh); }
+
+/* --- Kartice, tabele, bedževi ----------------------------------------- */
+.card { border-color: #E5E9EF; border-radius: 0.6rem; }
+.table thead.table-light th { background: var(--prekon-povrsina); color: var(--prekon-neutralna); font-weight: 600; }
+.badge.text-bg-success { background-color: var(--prekon-uspjeh) !important; }
+.badge.text-bg-danger { background-color: var(--prekon-greska) !important; }
+.badge.text-bg-secondary { background-color: var(--prekon-neutralna) !important; }
+.badge.text-bg-info { background-color: var(--prekon-sekundarna) !important; }
+.alert-info { background-color: #EFF6FF; border-color: #BFDBFE; color: var(--prekon-primarna); }
+.alert-success { background-color: #ECFDF5; border-color: #A7F3D0; color: #065F46; }
+.alert-danger { background-color: #FEF2F2; border-color: #FECACA; color: #991B1B; }
+.alert-warning { background-color: #FFFBEB; border-color: #FDE68A; color: #92400E; }
+
+/* --- Sidebar (koristi se u layouts/glavni.php) ------------------------ */
+.sidebar { background: var(--prekon-primarna) !important; }
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background: rgba(37, 99, 235, 0.25) !important;
+    color: #fff !important;
+}
+.sidebar .brand-mark { width: 32px; height: 32px; flex-shrink: 0; }
+
+.progress-bar { background: var(--prekon-gradijent-sekundarni) !important; }
